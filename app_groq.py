@@ -341,7 +341,7 @@ if submit:
         start = time.time()
 
         completion = client.chat.completions.create(
-            model="mixtral-8x7b-32768",   # ultra rápido
+            model="llama-3.3-70b-versatile",  
             messages=[
                 {
                     "role": "user",
