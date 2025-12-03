@@ -217,7 +217,7 @@ with open("prompt actualizado.txt", "r", encoding="utf8") as f:
 
 # RANGOS
 rangos_boxplot_chile = pd.DataFrame({
-    "Variable": ["Temperatura", "pH", "O2%", "O2 mg/l", "Alcalinidad", "Amonio Total"],
+    "Variable": ["Temperatura", "pH", "Saturación de oxígeno (%)", "Oxígeno disuelto (mg/L)", "Alcalinidad", "Amonio Total"],
     "min": [13.050, 7.820, 95.100, 8.154, 150.000, -0.300],
     "q1": [17.100, 8.360, 98.100, 9.020, 180.000, 0.000],
     "median": [18.450, 8.540, 99.100, 9.309, 190.000, 0.100],
@@ -226,7 +226,7 @@ rangos_boxplot_chile = pd.DataFrame({
 })
 
 rangos_boxplot_arg = pd.DataFrame({
-    "Variable": ["Temperatura", "pH", "O2%", "O2 mg/l", "Alcalinidad", "Amonio Total"],
+    "Variable": ["Temperatura", "pH", "Saturación de oxígeno (%)", "Oxígeno disuelto (mg/L)", "Alcalinidad", "Amonio Total"],
     "min": [12.950, 7.855, 92.050, 7.885, 100.500, -0.545],
     "q1": [17.000, 8.290, 96.400, 8.860, 159.000, 0.032],
     "median": [18.350, 8.435, 97.850, 9.185, 178.500, 0.225],
@@ -242,7 +242,7 @@ def eliminar_think(texto):
 
 if "datos" not in st.session_state:
     st.session_state.datos = pd.DataFrame(
-        columns=["Temperatura", "pH", "O2%", "O2 mg/l", "Alcalinidad", "Amonio Total", "Observaciones"]
+        columns=["Temperatura", "pH", "Saturación de oxígeno (%)", "Oxígeno disuelto (mg/L)", "Alcalinidad", "Amonio Total", "Observaciones"]
     )
 
 # -----------------------------
@@ -254,8 +254,8 @@ with st.form("formulario"):
     col1, col2, col3, col4, col5, col6 = st.columns(6)
     with col1: var1 = st.number_input("Temperatura (°C)", value=15.0)
     with col2: var2 = st.number_input("pH", value=7.0)
-    with col3: var3 = st.number_input("O2 (%)", value=98.0)
-    with col4: var4 = st.number_input("O2 (mg/l)", value=9.0)
+    with col3: var3 = st.number_input("Saturación de oxígeno (%)", value=98.0)
+    with col4: var4 = st.number_input("Oxígeno disuelto (mg/L)", value=9.0)
     with col5: var5 = st.number_input("Alcalinidad", value=150)
     with col6: var6 = st.number_input("Amonio Total", value=0.0)
 
@@ -273,8 +273,8 @@ if submit:
     valores_usuario = {
         "Temperatura": var1,
         "pH": var2,
-        "O2%": var3,
-        "O2 mg/l": var4,
+        "Saturación de oxígeno (%)": var3,
+        "Oxígeno disuelto (mg/L)": var4,
         "Alcalinidad": var5,
         "Amonio Total": var6
     }
@@ -321,8 +321,8 @@ if submit:
     nuevo_registro = {
         "Temperatura": var1,
         "pH": var2,
-        "O2%": var3,
-        "O2 mg/l": var4,
+        "Saturación de oxígeno (%)": var3,
+        "Oxígeno disuelto (mg/L)": var4,
         "Alcalinidad": var5,
         "Amonio Total": var6,
         "Tipo pejerrey": tipo_pez,
@@ -352,7 +352,7 @@ Tipo de pez: {tipo_pez}
 Datos del estanque:
 - Temperatura: {var1} °C  
 - pH: {var2}  
-- Oxígeno disuelto (%): {var3}  
+- Saturación de oxígeno (%): {var3}  
 - Oxígeno disuelto (mg/L): {var4}  
 - Amonio (TAN): {var6} mg/L  
 - Alcalinidad: {var5} mg/L CaCO₃  
