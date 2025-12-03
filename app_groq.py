@@ -341,7 +341,7 @@ if submit:
         start = time.time()
 
         completion = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",  
+            model="gemma2-9b-it",  
             messages=[
                 {
                     "role": "user",
