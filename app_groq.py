@@ -377,7 +377,7 @@ Interpretación, Problemas detectados y Recomendaciones.
 
     st.success(f"⚡ Reporte generado en {elapsed:.2f} segundos")
 
-    st.markdown("### 🧠 Resultado del análisis")
+    st.markdown("🧠 Resultado del análisis")
     st.markdown(resultado_final)
     
 # ==========================
