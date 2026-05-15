@@ -18,20 +18,16 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-# streamlit run app_groq.py
-# .\.venv\Scripts\activate
-
 # -----------------------------
 #       CONFIGURACIÓN
 # -----------------------------
 st.set_page_config(
     page_title="Fishualizer",
-    page_icon="🐟",  # si quieres luego lo cambias a favicon.png
+    page_icon="🐟", 
     layout="wide",
     initial_sidebar_state="auto",
 )
 
-# ===== CSS minimalista / profesional =====
 custom_css = """
 <style>
 /* Fondo general y tipografía */
@@ -202,10 +198,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-
-# =====================================================
-#  🔥 NUEVA CONFIGURACIÓN DEL CLIENTE — USANDO GROQ
-# =====================================================
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # -----------------------------
@@ -335,7 +327,7 @@ if submit:
     )
 
     # -------------------------
-    #    LLAMADA AL MODELO GROQ (CON LOADING)
+    #    LLAMADA AL MODELO GROQ 
     # -------------------------
     with st.spinner("⏳ Analizando datos del estanque y generando informe..."):
         start = time.time()
